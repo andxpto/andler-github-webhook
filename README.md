@@ -1,2 +1,3 @@
-# andler-github-webhook
- Typed Github webhook handler
+# Andler.Github.Webhook
+
+Typed Github webhook handler

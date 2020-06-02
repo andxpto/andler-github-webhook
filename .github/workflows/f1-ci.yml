@@ -1,0 +1,30 @@
+name: F1 CI
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@master
+    - name: bump version and push tag
+      id: tagging
+      uses: anothrNick/github-tag-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        REPO_OWNER: andxpto
+        INITIAL_VERSION: 0.0.1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1
+    - name: Build with dotnet
+      run: dotnet build ./src/Andler.Github.Webhook/Andler.Github.Webhook.csproj -p:Version=${{ steps.tagging.outputs.new_tag }} -c Release
+    - name: Pack with dotnet
+      run: dotnet pack ./src/Andler.Github.Webhook/Andler.Github.Webhook.csproj --no-build -p:Version=${{ steps.tagging.outputs.new_tag }} -c Release -o ./drop
+    - name: Push to nuget
+      run: dotnet nuget push ./src/Andler.Github.Webhook/drop/*.nupkg -k ${{ secrets.nuget_secret }} -s https://api.nuget.org/v3/index.json
+    - name: Push to github
+      run: dotnet nuget push ./src/Andler.Github.Webhook/drop/*.nupkg --source "github"
