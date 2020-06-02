@@ -10,6 +10,7 @@
         <PackageProjectUrl>https://github.com/andxpto/andler-github-webhook</PackageProjectUrl>
         <PackageIconUrl>https://raw.githubusercontent.com/andxpto/andler-github-webhook/master/logo.png</PackageIconUrl>
         <SynchReleaseVersion>false</SynchReleaseVersion>
+        <RepositoryUrl>https://github.com/andxpto/andler-github-webhook.git</RepositoryUrl>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="System.Text.Json" Version="4.7.2" />
