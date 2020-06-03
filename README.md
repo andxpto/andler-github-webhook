@@ -1,5 +1,7 @@
 # Andler.Github.Webhook
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ae9f2f31d14f40dda2b918e92f97b560)](https://app.codacy.com/manual/andxpto/andler-github-webhook?utm_source=github.com&utm_medium=referral&utm_content=andxpto/andler-github-webhook&utm_campaign=Badge_Grade_Settings)
+
 dotnet library that help you to handle the Github webhooks with typed objects.
 
 **Under development - no typed implementation for all the events**
