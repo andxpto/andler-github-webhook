@@ -8,7 +8,7 @@
         <Copyright>Copyright 2020 (c) André Correia</Copyright>
         <PackageTags>github webhook handler helper git hook</PackageTags>
         <PackageProjectUrl>https://github.com/andxpto/andler-github-webhook</PackageProjectUrl>
-        <PackageIconUrl>https://raw.githubusercontent.com/andxpto/andler-github-webhook/master/logo.png</PackageIconUrl>
+        <PackageIconUrl>https://raw.githubusercontent.com/andxpto/andler-github-webhook/master/logo/hook.png</PackageIconUrl>
         <SynchReleaseVersion>false</SynchReleaseVersion>
         <RepositoryUrl>https://github.com/andxpto/andler-github-webhook.git</RepositoryUrl>
     </PropertyGroup>

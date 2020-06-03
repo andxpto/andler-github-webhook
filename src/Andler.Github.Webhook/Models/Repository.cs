@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.Json.Serialization;
+using Andler.Github.Webhook.Converters;
 
 namespace Andler.Github.Webhook.Models
 {
@@ -143,12 +144,14 @@ namespace Andler.Github.Webhook.Models
         [JsonPropertyName("deployments_url")]
         public string DeploymentsUrl { get; set; }
 
+        [JsonConverter(typeof(DateTimeEpochConverter))]
         [JsonPropertyName("created_at")]
         public DateTime? CreatedAt { get; set; }
 
         [JsonPropertyName("updated_at")]
         public DateTime? UpdatedAt { get; set; }
 
+        [JsonConverter(typeof(DateTimeEpochConverter))]
         [JsonPropertyName("pushed_at")]
         public DateTime? PushedAt { get; set; }
 
