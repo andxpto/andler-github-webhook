@@ -10,14 +10,29 @@ namespace Andler.Github.Webhook.Converters
 
         public override DateTime? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            var epochTime = reader.GetString();
-
-            if (string.IsNullOrWhiteSpace(epochTime))
+            if (reader.TokenType == JsonTokenType.String)
             {
-                return null;
+                if (reader.TryGetDateTime(out var dateTime))
+                {
+                    return dateTime;
+                }
+
+                var epochTimeString = reader.GetString();
+
+                if (string.IsNullOrWhiteSpace(epochTimeString))
+                {
+                    return null;
+                }
+
+                return DateTime.UnixEpoch.AddSeconds(double.Parse(epochTimeString));
             }
 
-            return DateTime.UnixEpoch.AddSeconds(double.Parse(epochTime));
+            if (reader.TokenType == JsonTokenType.Number && reader.TryGetDouble(out var epochTimeDouble))
+            {
+                return DateTime.UnixEpoch.AddSeconds(epochTimeDouble);
+            }
+
+            return null;
         }
 
         public override void Write(Utf8JsonWriter writer, DateTime? value, JsonSerializerOptions options)
