@@ -26,5 +26,5 @@ jobs:
     - name: pack with dotnet
       run: dotnet pack ./src/Andler.Github.Webhook/Andler.Github.Webhook.csproj --no-build -p:Version=${{ steps.tagging.outputs.new_tag }} -c Release -o ./drop
     - name: push to nuget
-      run: dotnet nuget push ./drop/*.nupkg -k ${{ secrets.nuget_secret }} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols
+      run: dotnet nuget push ./drop/*.nupkg -k ${{ secrets.nuget_secret }} -s https://api.nuget.org/v3/index.json --skip-duplicate
 
