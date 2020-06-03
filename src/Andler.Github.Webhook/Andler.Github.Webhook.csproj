@@ -3,17 +3,25 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <PackageId>Andler.Github.Webhook</PackageId>
-        <Authors>rdne</Authors>
-        <Description>github webhook handler helper</Description>
+        <Authors>Andre</Authors>
+        <Description>Github webhook handler helper</Description>
         <Copyright>Copyright 2020 (c) André Correia</Copyright>
         <PackageTags>github webhook handler helper git hook</PackageTags>
         <PackageProjectUrl>https://github.com/andxpto/andler-github-webhook</PackageProjectUrl>
-        <PackageIconUrl>https://raw.githubusercontent.com/andxpto/andler-github-webhook/master/logo/hook.png</PackageIconUrl>
+        <PackageIcon>logo.png</PackageIcon>
         <SynchReleaseVersion>false</SynchReleaseVersion>
         <RepositoryUrl>https://github.com/andxpto/andler-github-webhook.git</RepositoryUrl>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="System.Text.Json" Version="4.7.2" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.4" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="..\..\logo\hook.png" Pack="true" PackagePath="" />
+        <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+        <None Include="..\..\README.md" Pack="true" PackagePath="" />
     </ItemGroup>
 </Project>
