@@ -21,10 +21,17 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1
+    - name: Set up Java (CoPilot)
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Upload to CoPilot
+      if: github.event_name == 'push' || github.event_name == 'pull_request'
+      run: bash <(curl -s https://copilot.blackducksoftware.com/ci/githubactions/scripts/upload)
     - name: build with dotnet
       run: dotnet build ./src/Andler.Github.Webhook/Andler.Github.Webhook.csproj -p:Version=${{ steps.tagging.outputs.new_tag }} -c Release
-    - name: pack with dotnet
-      run: dotnet pack ./src/Andler.Github.Webhook/Andler.Github.Webhook.csproj --no-build -p:Version=${{ steps.tagging.outputs.new_tag }} -c Release -o ./drop
-    - name: push to nuget
-      run: dotnet nuget push ./drop/*.nupkg -k ${{ secrets.nuget_secret }} -s https://api.nuget.org/v3/index.json --skip-duplicate
+   # - name: pack with dotnet
+   #   run: dotnet pack ./src/Andler.Github.Webhook/Andler.Github.Webhook.csproj --no-build -p:Version=${{ steps.tagging.outputs.new_tag }} -c Release -o ./drop
+   # - name: push to nuget
+   #   run: dotnet nuget push ./drop/*.nupkg -k ${{ secrets.nuget_secret }} -s https://api.nuget.org/v3/index.json --skip-duplicate
 
