@@ -25,6 +25,11 @@ namespace Andler.Github.Webhook
 
         public async Task<HandlerResult> Handler(string payload, string name, string id, string userAgent, string signature)
         {
+            if (string.IsNullOrWhiteSpace(payload))
+            {
+                throw new ArgumentException($"'{nameof(payload)}' cannot be null or whitespace.", nameof(payload));
+            }
+
             var result = new HandlerResult();
 
             result.SignatureCheck = _githubWebhookHandlerSettings.CheckSignature;
