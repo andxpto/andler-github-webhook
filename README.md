@@ -1,4 +1,6 @@
 # Andler.Github.Webhook
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fandxpto%2Fandler-github-webhook.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fandxpto%2Fandler-github-webhook?ref=badge_shield)
+
 
 dotnet library that help you to handle the Github webhooks with typed objects.
 
@@ -50,3 +52,6 @@ Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://github.com/andxpto/andler-github-webhook/blob/master/LICENSE)
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fandxpto%2Fandler-github-webhook.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fandxpto%2Fandler-github-webhook?ref=badge_large)
