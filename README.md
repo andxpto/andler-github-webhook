@@ -2,8 +2,6 @@
 
 dotnet library that help you to handle the Github webhooks with typed objects.
 
-**Under development - no typed implementation for all the events**
-
 ### Events available
 
 - PullRequest
